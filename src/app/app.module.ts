@@ -22,6 +22,7 @@ import { CourseComponent } from './course/course.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { StudentAddFormComponent } from './student/student-add-form/student-add-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { StudentAddFormComponent } from './student/student-add-form/student-add-
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
 
     /* MATERIAL ANGULAR MODULES */
     MatToolbarModule,
