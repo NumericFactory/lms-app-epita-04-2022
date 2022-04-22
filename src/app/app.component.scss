@@ -1,0 +1,14 @@
+mat-toolbar-row {
+    justify-content: space-between;
+}
+mat-list-item {
+    transition-duration: .2s;
+    &.active { 
+        background: #d2dced;
+    }
+    &:hover{
+        background:#d2dced;
+        cursor: pointer;
+    }
+}
+

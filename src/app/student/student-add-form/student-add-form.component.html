@@ -1,0 +1,61 @@
+<div class="page-title">  
+    <button routerLink="../" mat-icon-button>
+        <mat-icon inline="true">arrow_back</mat-icon>
+    </button>
+    <h1 class="m-0">Ajouter un apprenant</h1>
+</div>
+
+
+<form class="card-form">
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Prénom</mat-label>
+            <input matInput>
+            <mat-error></mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Nom</mat-label>
+            <input matInput>
+            <mat-error></mat-error>
+        </mat-form-field>
+    </div>  
+
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput>
+            <mat-error></mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Ville</mat-label>
+            <input matInput>
+            <mat-error></mat-error>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Mobile</mat-label>
+            <input matInput>
+            <mat-error></mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Situation</mat-label>
+            <mat-select> 
+                <mat-option value="1">Entrepreneur</mat-option>
+                <mat-option value="2">Salarié</mat-option>
+                <mat-option value="3">Demandeur d'emploi</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <button type="submit">Envoyer</button>
+
+</form>
+
+
+
+
+
+

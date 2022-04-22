@@ -1,0 +1,70 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~bootstrap/dist/css/bootstrap-reboot.min.css';
+@import '~bootstrap/dist/css/bootstrap-grid.min.css';
+@import '~bootstrap/dist/css/bootstrap-utilities.min.css';
+
+/* CUSTOM GENERAL CSS */
+
+body {
+    background: #f6f7f9;
+}
+.mat-typography h1 {
+    font: 400 38px/28px Roboto, "Helvetica Neue", sans-serif;
+}
+.mat-mini-fab {
+    background-color: #fff;
+    color: #222;
+}
+.page-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    h1 {
+        color:black;
+    }
+    button{
+        font-size: 42px;
+        display: flex;
+        align-items: center;
+        color: rgb(73, 81, 88);
+        margin-right: 20px;
+        &:hover {
+            color: black;
+        }
+    
+    }
+        
+}
+
+/* form.card-form */
+form.card-form {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 7px;
+    background: #fff;
+}
+form.card-form>div {
+    display: flex;
+}
+form.card-form mat-form-field {
+    width: 100%;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+form.card-form button[type=submit] {
+    width: calc(100% - 10px);
+    background: #222;
+    padding: 1em;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 7px;
+    border: none;
+    margin-left: 5px;
+}
+@media screen and (max-width:767px){
+    form.card-form>div {
+        flex-wrap: wrap;
+    }
+}

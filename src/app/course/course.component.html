@@ -1,0 +1,28 @@
+
+<h1>Formations</h1>
+<!-- courses list-->
+<div class="row">
+    <div *ngFor="let course of courses" class="col-12 col-md-6 col-lg-4 mt-3 d-flex">
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title><img [src]="'https://frederic-lossignol.com/'+course.iconurl">{{course.name}}</mat-card-title>
+                <mat-card-subtitle>{{course.subtitle}}</mat-card-subtitle>
+            </mat-card-header>
+            
+            <mat-card-content>
+                <p>
+                {{course.goal}}
+                </p>
+            </mat-card-content>
+            <mat-card-actions style="display:flex;justify-content:flex-end">
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip color="primary" selected>{{course.modules.length}} modules</mat-chip>
+                </mat-chip-list>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+  
+  
+ 
