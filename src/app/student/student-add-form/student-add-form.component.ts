@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/shared/services/alert.service';
 import { StudentService } from 'src/app/shared/services/student.service';
 
 @Component({
@@ -11,7 +13,12 @@ export class StudentAddFormComponent implements OnInit {
 
   studentForm:FormGroup;
 
-  constructor(private fb:FormBuilder, private studentSvc:StudentService) { 
+  constructor(
+    private fb:FormBuilder, 
+    private studentSvc:StudentService,
+    private alertSvc:AlertService,
+    private router: Router
+    ) { 
 
     this.studentForm = this.fb.group({
       first: ['', [Validators.required, Validators.minLength(2)] ],
@@ -31,7 +38,11 @@ export class StudentAddFormComponent implements OnInit {
     if(this.studentForm.valid) {
       let newStudent = this.studentForm.value;
       this.studentSvc.createNewStudentInApi(newStudent).subscribe({
-        next : response => console.log(response),
+        next : response => {
+          this.alertSvc.showMessage('Vous avez bien ajouté un nouvel apprenant', 'Fermer');
+          this.router.navigate(['/students'])
+        }
+
       }
       )
     }

@@ -17,6 +17,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { CourseComponent } from './course/course.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -24,6 +26,7 @@ import { StudentListComponent } from './student/student-list/student-list.compon
 import { StudentAddFormComponent } from './student/student-add-form/student-add-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorsInterceptor } from './shared/interceptors/errors.interceptor';
+import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,12 +54,19 @@ import { ErrorsInterceptor } from './shared/interceptors/errors.interceptor';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule,
+    MatProgressBarModule
   ],
 
   providers: [ 
 
     /* LoaderInterceptor */
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi:true
+    }, 
 
     /* TokenInterceptior */
     

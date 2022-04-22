@@ -30,7 +30,7 @@ export class StudentService {
     endpoint : '/customers'
   */
     createNewStudentInApi(newStudent:StudentModel):Observable<any> {
-      return this.http.post(environment.apiStudentUrl+'/cus', newStudent);
+      return this.http.post(environment.apiStudentUrl+'/customers', newStudent);
     }
 
   

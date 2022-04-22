@@ -21,6 +21,12 @@
 
       </mat-toolbar-row>
       </mat-toolbar>
+
+      <!-- LOADER-->
+      {{loader}}
+      <div *ngIf="loader" style="margin-top: 10px;" >
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
 </header>
 
 <main>

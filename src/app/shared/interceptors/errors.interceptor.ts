@@ -8,11 +8,12 @@ import {
 } from '@angular/common/http';
 import { catchError, Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { AlertService } from '../services/alert.service';
 
 @Injectable()
 export class ErrorsInterceptor implements HttpInterceptor {
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private alertSvc:AlertService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
@@ -23,21 +24,21 @@ export class ErrorsInterceptor implements HttpInterceptor {
             // Traitement des codes erreurs
             switch( err.status) {
               case 401 : 
-              alert('Vous n\'êtes pas connectée');
+             this.alertSvc.showMessage('Vous n\'êtes pas connectée', 'Fermer');
               // this.router.navigate(['login'])
               break;
   
               case 403 : 
-              alert('Vous n\'êtes pas autorisée');
+             this.alertSvc.showMessage('Vous n\'êtes pas autorisée', 'Fermer');
              
               break;
   
               case 404 : 
-              alert('La ressource n\'existe pas1234');
+             this.alertSvc.showMessage('La ressource n\'existe pas1234',  'Fermer');
               break;
   
               case 500 : 
-              alert('Erreur serveur');
+             this.alertSvc.showMessage('Erreur serveur',  'Fermer');
               break;
             }
           }
