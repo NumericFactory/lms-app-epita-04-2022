@@ -29,25 +29,20 @@ export class ErrorsInterceptor implements HttpInterceptor {
   
               case 403 : 
               alert('Vous n\'êtes pas autorisée');
-              // this.router.navigate(['login'])
+             
               break;
   
               case 404 : 
-              alert('La ressource n\'existe pas');
-              // this.router.navigate(['login'])
+              alert('La ressource n\'existe pas1234');
               break;
   
               case 500 : 
               alert('Erreur serveur');
-              // this.router.navigate(['login'])
               break;
             }
           }
-
         }
       })
-
-    
     ) // Sortie du pipe (Observable)
   }
 }

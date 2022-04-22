@@ -19,10 +19,11 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatMenuModule} from '@angular/material/menu';
 
 import { CourseComponent } from './course/course.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { StudentListComponent } from './student/student-list/student-list.component';
 import { StudentAddFormComponent } from './student/student-add-form/student-add-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorsInterceptor } from './shared/interceptors/errors.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatMenuModule
   ],
-  providers: [],
+
+  providers: [ 
+
+    /* LoaderInterceptor */
+
+    /* TokenInterceptior */
+    
+    /* ErrorsInterceptor*/ 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorsInterceptor,
+      multi:true
+    } 
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
