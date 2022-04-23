@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseComponent } from './course/course.component';
 import { StudentAddFormComponent } from './student/student-add-form/student-add-form.component';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 import { StudentListComponent } from './student/student-list/student-list.component';
 
 const routes: Routes = [
@@ -11,13 +12,18 @@ const routes: Routes = [
     children: [
       {path: '', pathMatch:'full',redirectTo: 'list'},
       {
-          path: 'list',
-          component: StudentListComponent
+        path: 'list',
+        component: StudentListComponent
       },
       {
-          path: 'add',
-          component: StudentAddFormComponent
-      }
+        path: 'detail/:id',
+        component: StudentDetailComponent
+      },
+      {
+        path: 'add',
+        component: StudentAddFormComponent
+      },
+      
     ]
   }
 

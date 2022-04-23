@@ -27,6 +27,8 @@ import { StudentAddFormComponent } from './student/student-add-form/student-add-
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorsInterceptor } from './shared/interceptors/errors.interceptor';
 import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
+import { MatSortModule } from '@angular/material/sort';
+import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
     CourseComponent,
     StudentListComponent,
     StudentAddFormComponent,
+    StudentDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
     MatChipsModule,
     MatProgressSpinnerModule,
     MatTableModule,
+    MatSortModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,

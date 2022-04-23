@@ -38,8 +38,12 @@ export class StudentAddFormComponent implements OnInit {
     if(this.studentForm.valid) {
       let newStudent = this.studentForm.value;
       this.studentSvc.createNewStudentInApi(newStudent).subscribe({
-        next : response => {
-          this.alertSvc.showMessage('Vous avez bien ajouté un nouvel apprenant', 'Fermer');
+        next : (studentId:string) => {
+          newStudent.id = studentId;
+          let studentsArray = this.studentSvc.getStudents();
+          studentsArray = [newStudent,...studentsArray];
+          this.studentSvc.setStudents$(studentsArray);
+          this.alertSvc.showMessage('Vous avez bien ajouté un nouvel apprenant');
           this.router.navigate(['/students'])
         }
 

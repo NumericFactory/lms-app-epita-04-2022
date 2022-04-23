@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { StudentModel } from 'src/app/shared/models/student.model';
+import { AlertService } from 'src/app/shared/services/alert.service';
 import { StudentService } from 'src/app/shared/services/student.service';
 
 @Component({
@@ -9,23 +13,57 @@ import { StudentService } from 'src/app/shared/services/student.service';
 })
 export class StudentListComponent implements OnInit {
 
+  dataSource = new MatTableDataSource<StudentModel>();
   displayedColumns:string[] = ['last', 'first', 'city', 'mobile', 'action'];
-  students:StudentModel[] = [];
+ 
+  constructor(
+    private studentSvc: StudentService, 
+    private router:Router,
+    private alertSvc:AlertService) { }
 
-  constructor(private studentSvc: StudentService) { }
+  @ViewChild(MatSort) sort:any;
 
-  ngOnInit(): void {
-    this.studentSvc.getStudentsFromApi().subscribe(
-      data => {
-        console.log(data)
-        this.students = data
-  
-      }
-    )
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
   }
 
+  ngOnInit(): void {
+    this.studentSvc.students$.subscribe(
+      (data:StudentModel[]) => {
+        if(data.length>0) {
+          this.dataSource.data = data;
+        }
+        else {
+          this.studentSvc.getStudentsFromApi()
+        }
+      }
+    )
+  } // fin ngOnInit()
+
+
   getStudentAction(id:string) {
-    console.log(id)
+    this.router.navigate(['/students/detail', id])
+  }
+
+  sortData(sort: Sort) {
+   
+  }
+
+  deleteStudentAction(studentId:string) {
+    this.studentSvc.deleteStudentInApi(studentId).subscribe(
+      (response) => {
+        if(response.deleted) {
+          // suppression 
+          let studentsArray = this.studentSvc.getStudents();
+          let index = studentsArray.findIndex(student => student.id == response.detail)
+          studentsArray.splice(index, 1);   
+          // mise à jour de _students$
+          this.studentSvc.setStudents$(studentsArray);
+          // afficher message de succès
+          this.alertSvc.showMessage('Cet apprenant a bien été supprimé')
+        }
+      }
+    )
   }
 
 }

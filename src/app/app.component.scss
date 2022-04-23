@@ -1,3 +1,17 @@
+header>mat-toolbar {
+    position: fixed;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+}
+main {
+    margin-top: 63px;
+    padding-top: 1px;
+    padding-bottom: 40px;
+}
+div.loader {
+    position:fixed;top:61px;z-index: 2;width: 100%;
+}
 mat-toolbar-row {
     justify-content: space-between;
 }
@@ -7,8 +21,15 @@ mat-list-item {
         background: #d2dced;
     }
     &:hover{
-        background:#d2dced;
+        background:#020204;
+        color:#fff;
         cursor: pointer;
     }
 }
 
+.menu {
+    background: #16202f; height: 100vh;
+}
+.menu mat-list-item {
+    color: #8db0ff 
+}
