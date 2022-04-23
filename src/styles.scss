@@ -63,6 +63,27 @@ form.card-form button[type=submit] {
     border: none;
     margin-left: 5px;
 }
+
+/* 
+    table 
+*/
+tr.mat-header-row {
+    background: #f6f7f9;
+}
+.mat-header-cell {
+    font-size: 16px;
+    font-weight: bold;
+}
+.mat-cell, .mat-footer-cell {
+    font-size: 1.1em;
+}
+th.mat-header-cell.center, td.mat-cell.center, td.mat-footer-cell.center {
+    text-align: center;
+}
+th.mat-header-cell.right, td.mat-cell.right, td.mat-footer-cell.right {
+    text-align: right;
+}
+
 @media screen and (max-width:767px){
     form.card-form>div {
         flex-wrap: wrap;

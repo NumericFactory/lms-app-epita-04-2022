@@ -14,7 +14,17 @@ import { StudentService } from 'src/app/shared/services/student.service';
 export class StudentListComponent implements OnInit {
 
   dataSource = new MatTableDataSource<StudentModel>();
-  displayedColumns:string[] = ['last', 'first', 'city', 'mobile', 'action'];
+  displayedColumns:string[] = [
+    'last', 
+    'first', 
+    'city', 
+    'mobile', 
+    'in_track', 
+    'track_start', 
+    'track_end', 
+    'track_progress', 
+    'action'
+  ];
  
   constructor(
     private studentSvc: StudentService, 

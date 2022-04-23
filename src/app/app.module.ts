@@ -30,6 +30,7 @@ import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 import { MatSortModule } from '@angular/material/sort';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +61,8 @@ import { StudentDetailComponent } from './student/student-detail/student-detail.
     MatSelectModule,
     MatMenuModule,
     MatSnackBarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+
   ],
 
   providers: [ 
