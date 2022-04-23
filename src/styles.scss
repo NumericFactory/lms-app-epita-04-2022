@@ -47,9 +47,14 @@ form.card-form {
 }
 form.card-form>div {
     display: flex;
+    flex-direction: row;
+}
+form.card-form.column>div {
+    display: flex;
+    flex-direction: column;
 }
 form.card-form mat-form-field {
-    width: 100%;
+    width: calc(100% - 10px);;
     margin-right: 5px;
     margin-left: 5px;
 }

@@ -1,0 +1,25 @@
+<div class="page-title">  
+    <h1 class="m-0">Se connecter</h1>
+</div>
+
+
+<form (submit)="onSubmitLoginForm()" [formGroup]="loginForm" class="card-form column">
+    <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input formControlName="email" matInput>
+            <mat-error *ngIf="loginForm.controls['email'].hasError('email') && isSubmitted">
+                Veuillez renseigner un email valide
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Mot de passe</mat-label>
+            <input formControlName="password" matInput>
+            <mat-error *ngIf="loginForm.controls['password'].hasError('required') && isSubmitted">
+                Mot de passe requis
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <button type="submit">Se connecter</button>
+</form>

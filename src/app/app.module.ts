@@ -29,6 +29,7 @@ import { ErrorsInterceptor } from './shared/interceptors/errors.interceptor';
 import { LoaderInterceptor } from './shared/interceptors/loader.interceptor';
 import { MatSortModule } from '@angular/material/sort';
 import { StudentDetailComponent } from './student/student-detail/student-detail.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { StudentDetailComponent } from './student/student-detail/student-detail.
     StudentListComponent,
     StudentAddFormComponent,
     StudentDetailComponent,
+    UserLoginComponent,
   ],
   imports: [
     BrowserModule,
